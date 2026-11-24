@@ -1,0 +1,124 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+---
+
+<BaseLayout title="대표 프로젝트 상세 | kem0" sideBarActiveItemID="projects">
+  <div class="mb-6">
+    <h1 class="text-3xl w-full font-bold">대표 프로젝트 상세</h1>
+    <p class="text-sm opacity-75 mt-1">문제 정의부터 아키텍처 설계, 정량 검증 및 클라우드 배포까지의 전체 엔지니어링 기록입니다.</p>
+  </div>
+
+  <div class="rounded-lg border border-base-300 bg-base-100 p-6 mb-8 shadow-sm">
+    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+      <div>
+        <span class="badge badge-secondary mb-1">2026 청도 바이브코딩 해커톤 출품작 - 우수상</span>
+        <h2 class="text-2xl font-bold">감스닥 (GAMSDAQ) — 양방향 호가 로컬 농산물 거래소</h2>
+      </div>
+      <div class="flex gap-2">
+        <a
+          href="/pf-8f3a2c/demo/gamsdaq/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-sm btn-neutral">
+          라이브 데모 체험
+        </a>
+        <a
+          href="https://github.com/kem0-kem/gamsdaq"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-sm btn-outline">
+          GitHub 저장소
+        </a>
+      </div>
+    </div>
+
+    <p class="text-base leading-relaxed mb-4">
+      <b>AI 최저가 검증 에이전트(<code>GitHub.Copilot.SDK</code> 및 <code>Microsoft.Agents.AI</code>) 기반 농산물 상생 호가 거래소</b>입니다.
+      비정형 지역 농산물(청도 반시 5kg, 노지 감귤 3kg)을 당도, 중량, 등급 기반의 표준 티커로 규격화하고,
+      4단계 미끼 상품 필터링 수식을 통과한 인터넷 실질 최저가와 산지 도매 기준가 사이의 상생 가격 밴드 안에서 실시간 호가 매칭을 수행합니다.
+    </p>
+
+    <div class="space-y-4 text-sm">
+      <div class="p-4 bg-base-200/70 rounded-lg">
+        <h3 class="font-bold text-base mb-2">1. 문제 정의</h3>
+        <ul class="list-disc ml-5 space-y-2 leading-relaxed">
+          <li>
+            <b>유통 마진 비대칭 및 디지털 장벽</b><br />
+            고령 농가는 오픈마켓 상세페이지와 가격 설정 장벽이 높고, 공판장 도매 위탁 시 수취가가 낮아집니다.
+          </li>
+          <li>
+            <b>온라인 미끼 상품 역선택</b><br />
+            소비자는 1kg 소포장 ‘옵션치기’, 과도한 배송비 부과(35% 초과), 등급 혼합 때문에 실제 최저가를 판별하기 어렵습니다.
+          </li>
+          <li>
+            <b>상생 해법</b><br />
+            농산물을 당도, 중량, 등급 기반 <b>표준 티커</b>로 규격화하고, 산지 도매가(<code>P_wholesale</code>)와 AI 검증 인터넷 실질 최저가(<code>P_retail</code>) 사이의 <b>상생 가격 밴드</b> 안에서 직거래 호가를 매칭합니다.
+          </li>
+        </ul>
+      </div>
+
+      <div class="p-4 bg-base-200/70 rounded-lg">
+        <h3 class="font-bold text-base mb-2">2. 담당 역할 및 핵심 구현</h3>
+        <ul class="list-disc ml-5 space-y-2 leading-relaxed">
+          <li>
+            <b>멀티 에이전트 파이프라인 및 결정론적 도구 분리</b><br />
+            자연어 해석과 추론 요약은 <code>ChatClientAgent</code>가 담당하고, 단가 환산, 최적 호가 산출, 4단계 미끼 검증, 불변식 감사는 결정론적 C# <code>AIFunction</code>(10종)이 수행하여 LLM 산술 환각을 원천 배제했습니다.
+          </li>
+          <li>
+            <b>원자적 사본 격리 및 신뢰 상태 강제</b><br />
+            요청별 독립 사본에서 검증 후 교차 감사 통과 시에만 단일 잠금으로 확정하며, 실패나 취소 시 호가창과 예약금을 롤백합니다.
+          </li>
+          <li>
+            <b>가격 및 시간 우선 호가 매칭 엔진</b><br />
+            지정가 및 시장가 다단계 체결, 호가 잔량 불균형 기반 추천 호가 동적 재산출을 구현했습니다.
+          </li>
+          <li>
+            <b>고령 친화 화면 및 개인정보 보호</b><br />
+            자연어 1줄 출하 도우미, 큰글씨 모드, 무라운딩 3색 제한 디자인 시스템, 배송지 수집 즉시 비식별 마스킹을 구현했습니다.
+          </li>
+        </ul>
+      </div>
+
+      <div class="p-4 bg-base-200/70 rounded-lg">
+        <h3 class="font-bold text-base mb-2">3. 사용 기술</h3>
+        <p class="font-mono text-xs leading-relaxed">
+          .NET 10 (C# Minimal API), GitHub.Copilot.SDK, Microsoft.Agents.AI, TypeScript, Vite, Zero-Radius CSS, Azure Container Apps, Bicep, OpenTelemetry, xUnit
+        </p>
+      </div>
+
+      <div class="p-4 bg-base-200/70 rounded-lg">
+        <h3 class="font-bold text-base mb-2">4. 주요 결과 및 성과</h3>
+        <ul class="list-disc ml-5 space-y-2 leading-relaxed">
+          <li>
+            <b>출하 및 가격 비교 시간 단축</b><br />
+            수기 시세 비교와 등록 6단계(약 15분) 과정을 <b>자연어 1줄 입력 기반 3단계(15~25초, 3클릭)</b>로 단축했습니다.
+          </li>
+          <li>
+            <b>양측 상생 경제 효과</b><br />
+            시뮬레이션 기준 산지 도매가 대비 농가 박스당 순수취를 <b>34.8%~39.3% 증대</b>시켰고, 인터넷 최저가 대비 소비자 실질 구매가를 <b>19.6%~23.8% 절감</b>했습니다.
+          </li>
+          <li>
+            <b>품질 및 보안 검증</b><br />
+            단위, 경계값, 동시성, 프롬프트 인젝션 방어, 감사 롤백을 포함한 <b>162개 자동화 테스트를 전원 통과</b>했습니다.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="text-2xl w-full font-bold mb-4 mt-8">기타 프로젝트</div>
+  </div>
+
+  <HorizontalCard
+    title="WalkWar — 도시를 공략하는 레이드 걷기 게임"
+    desc="원펀치 랄프톤 in busan 수상작.<br>도시를 걸어서 정복하는 게임 프로토타입입니다.<br>1위 팀의 국기를 해당 행정구역에 다는 방식으로 소도시 여행을 활성화하고자 했습니다."
+    url="https://github.com/kem0-kem/WalkWar"
+    badge="Prototype"
+    tags={["GitHub"]}
+  />
+  <div class="divider my-0"></div>
+</BaseLayout>
+
+

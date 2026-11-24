@@ -1,0 +1,32 @@
+---
+const { sideBarActiveItemID } = Astro.props;
+const activeClass = "bg-base-300"; // For primary color replace with `active` class
+---
+
+<ul class="menu grow shrink menu-md overflow-y-auto gap-1">
+    <li><a class="py-3 text-base font-medium" id="home" href="/pf-8f3a2c/">홈</a></li>
+    <li><a class="py-3 text-base font-medium" id="projects" href="/pf-8f3a2c/projects/">대표 프로젝트 상세</a></li>
+    <li><a class="py-3 text-base font-medium" id="cv" href="/pf-8f3a2c/cv/">이력서</a></li>
+    <li class="mt-2 pt-2 border-t border-base-300">
+        <a
+            class="py-3 text-base font-semibold bg-neutral text-neutral-content hover:bg-neutral-focus"
+            href="/pf-8f3a2c/CV.pdf"
+            download="CV.pdf">
+            이력서 PDF 다운로드
+        </a>
+    </li>
+    <li>
+        <a
+            class="py-3 text-base"
+            href="https://github.com/kem0-kem"
+            target="_blank"
+            rel="noopener noreferrer">
+            GitHub (@kem0-kem)
+        </a>
+    </li>
+</ul>
+
+<script define:vars={{ sideBarActiveItemID: sideBarActiveItemID, activeClass: activeClass }}>
+const activeItemElem = document.getElementById(sideBarActiveItemID);
+activeItemElem && activeItemElem.classList.add(activeClass);
+</script>

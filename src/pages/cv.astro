@@ -1,0 +1,102 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+---
+
+<BaseLayout title="이력서 | kem0" sideBarActiveItemID="cv">
+  <div class="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-base-300">
+    <div>
+      <h1 class="text-3xl font-bold">이력서</h1>
+      <p class="text-sm opacity-75 mt-1">kem0 (kem0-kem), <a href="https://github.com/kem0-kem" target="_blank" rel="noopener noreferrer" class="underline">github.com/kem0-kem</a></p>
+    </div>
+    <a href="/pf-8f3a2c/CV.pdf" download="CV.pdf" class="btn btn-neutral btn-sm">
+      이력서 PDF 다운로드
+    </a>
+  </div>
+
+  <div class="mb-4">
+    <div class="text-2xl w-full font-bold">소개</div>
+  </div>
+
+  <div class="mb-8 leading-relaxed">
+    손에 잡히는 것은 무엇이든 합니다. 다만 취업시장에서 웹을 많이 뽑아서 웹을 하고 있습니다.<br />
+    현재는 LLM의 가드레일 제거를 주로 공부하고 있습니다.<br />
+    하지만 VR도 하고 모델링도 하고 임베디드도 하고 보안도 합니다.
+  </div>
+
+  <div class="mb-4">
+    <div class="text-2xl w-full font-bold">주요 프로젝트 경험</div>
+  </div>
+
+  <div class="time-line-container mb-10">
+    <TimeLineElement
+      title="감스닥 (GAMSDAQ) — 양방향 호가 로컬 농산물 거래소"
+      subtitle="2026 청도 바이브코딩 해커톤 출품작 - 우수상"
+    >
+      <ul class="list-disc ml-5 mt-2 space-y-2 text-sm leading-relaxed">
+        <li>
+          <b>문제 해결</b><br />
+          고령 농가의 디지털 판로 장벽 및 유통 마진 비대칭, 온라인 오픈마켓의 미끼 상품(옵션치기, 과도한 배송비, 등급 왜곡) 문제를 해결했습니다.
+        </li>
+        <li>
+          <b>에이전트 아키텍처</b><br />
+          <code>GitHub.Copilot.SDK</code> 및 <code>Microsoft.Agents.AI</code> <code>ChatClientAgent</code> 파이프라인과 10종 결정론적 C# <code>AIFunction</code> 도구를 통합했습니다.
+        </li>
+        <li>
+          <b>도메인 엔진 및 보안</b><br />
+          가격 및 시간 우선 다단계 호가 매칭 엔진, 작업 사본 격리와 교차 감사 롤백, 즉시 비식별 마스킹을 구현했습니다.
+        </li>
+        <li>
+          <b>주요 성과</b><br />
+          162개 자동화 테스트 통과, 출하 및 가격 비교 소요 시간을 15분에서 15~25초로 단축, Azure Container Apps 라이브 배포를 수행했습니다.
+        </li>
+      </ul>
+    </TimeLineElement>
+
+    <TimeLineElement
+      title="WalkWar — 도시를 공략하는 레이드 걷기 게임"
+      subtitle="원펀치 랄프톤 in busan 수상작"
+    >
+      <p class="mt-2 text-sm leading-relaxed">
+        도시를 걸어서 정복하는 게임 프로토타입입니다.<br />
+        1위 팀의 국기를 해당 행정구역에 다는 방식으로 소도시 여행을 활성화하고자 했습니다.
+      </p>
+    </TimeLineElement>
+  </div>
+
+  <div class="mb-4">
+    <div class="text-2xl w-full font-bold">관심 분야 및 기술</div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 text-sm">
+    <div class="p-4 rounded-lg bg-base-200/60">
+      <div class="font-bold mb-1">현재 관심 분야</div>
+      <div>VR/XR, 로컬 LLM/가드레일 제거, 정보보안/모의해킹</div>
+    </div>
+    <div class="p-4 rounded-lg bg-base-200/60">
+      <div class="font-bold mb-1">웹, 백엔드, 클라우드</div>
+      <div>.NET 10 (C#), TypeScript, Vite, Astro, Azure Container Apps, Bicep, Docker</div>
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <div class="text-2xl w-full font-bold">교육 및 수상</div>
+  </div>
+
+  <div class="time-line-container mb-10">
+    <TimeLineElement
+      title="부산대학교 정보컴퓨터공학부"
+      subtitle="2023. 03 ~ 현재"
+    />
+    <TimeLineElement
+      title="2026 청도 바이브코딩 해커톤 우수상"
+      subtitle="감스닥 (GAMSDAQ)"
+    />
+    <TimeLineElement
+      title="원펀치 랄프톤 in busan 수상"
+      subtitle="WalkWar"
+    />
+  </div>
+</BaseLayout>
+
+

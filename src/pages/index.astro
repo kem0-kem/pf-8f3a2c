@@ -1,0 +1,205 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+---
+
+<BaseLayout sideBarActiveItemID="home">
+  <!-- 1. 프로필 영역: 닉네임, 현재 관심 분야, GitHub 링크, 이력서 PDF 다운로드 -->
+  <div class="pb-10 mt-3 border-b border-base-300">
+    <div class="text-4xl md:text-5xl font-bold tracking-tight">kem0</div>
+    <div class="text-xl md:text-2xl py-3 font-semibold opacity-85">
+      손에 잡히는 것은 무엇이든.
+    </div>
+    <p class="text-base leading-relaxed opacity-90 py-1">
+      손에 잡히는 것은 무엇이든 합니다. 다만 취업시장에서 웹을 많이 뽑아서 웹을 하고 있습니다.<br />
+      현재는 LLM의 가드레일 제거를 주로 공부하고 있습니다.<br />
+      하지만 VR도 하고 모델링도 하고 임베디드도 하고 보안도 합니다.
+    </p>
+
+    <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3 bg-base-200/70 p-4 rounded-lg border border-base-300">
+      <div>
+        <div class="text-xs font-bold uppercase opacity-60">닉네임</div>
+        <div class="font-mono font-bold text-base mt-0.5">kem0-kem</div>
+      </div>
+      <div>
+        <div class="text-xs font-bold uppercase opacity-60">GitHub</div>
+        <div class="font-mono text-base mt-0.5">
+          <a href="https://github.com/kem0-kem" target="_blank" rel="noopener noreferrer" class="underline font-semibold">
+            https://github.com/kem0-kem
+          </a>
+        </div>
+      </div>
+      <div class="sm:col-span-2">
+        <div class="text-xs font-bold uppercase opacity-60 mb-1.5">현재 관심 분야</div>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="badge badge-neutral">VR/XR</span>
+          <span class="badge badge-neutral">로컬 LLM/가드레일 제거</span>
+          <span class="badge badge-neutral">정보보안/모의해킹</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a href="https://github.com/kem0-kem" target="_blank" rel="noopener noreferrer" class="btn btn-neutral">
+        GitHub 프로필 방문
+      </a>
+      <a href="/pf-8f3a2c/CV.pdf" download="CV.pdf" class="btn btn-outline">
+        이력서 PDF 다운로드
+      </a>
+      <a href="/pf-8f3a2c/cv/" class="btn btn-ghost">
+        웹 이력서 보기
+      </a>
+    </div>
+  </div>
+
+  <!-- 2. 대표 프로젝트 소개: 문제 정의, 역할, 기술, 결과, 데모 링크, 소스 코드 링크 -->
+  <div class="mt-10">
+    <div class="flex items-center justify-between flex-wrap gap-2 mb-4">
+      <h2 class="text-3xl font-bold">대표 프로젝트 소개</h2>
+      <span class="badge badge-secondary font-mono">대표 프로젝트</span>
+    </div>
+
+    <div class="rounded-lg border border-base-300 bg-base-100 p-6 shadow-sm">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 pb-4 border-b border-base-200">
+        <div>
+          <div class="text-xs font-mono opacity-60">2026 청도 바이브코딩 해커톤 출품작 - 우수상</div>
+          <h3 class="text-2xl font-bold mt-0.5">감스닥 (GAMSDAQ) — 양방향 호가 로컬 농산물 거래소</h3>
+        </div>
+        <div class="flex gap-2 shrink-0">
+          <a
+            href="/pf-8f3a2c/demo/gamsdaq/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-sm btn-neutral">
+            라이브 데모
+          </a>
+          <a
+            href="https://github.com/kem0-kem/gamsdaq"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-sm btn-outline">
+            소스 코드
+          </a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
+        <div class="p-4 rounded-lg bg-base-200/60">
+          <h4 class="font-bold text-base mb-2">1. 문제 정의</h4>
+          <ul class="list-disc ml-5 text-sm space-y-2 leading-relaxed">
+            <li>
+              <b>유통 마진 비대칭 및 디지털 장벽</b><br />
+              고령 농가는 오픈마켓 상세페이지와 가격 설정 장벽이 높고, 공판장 도매 위탁 시 수취가가 낮아집니다.
+            </li>
+            <li>
+              <b>온라인 미끼 상품 역선택</b><br />
+              소비자는 1kg 소포장 ‘옵션치기’, 과도한 배송비 부과(35% 초과), 등급 혼합 때문에 실제 최저가를 판별하기 어렵습니다.
+            </li>
+            <li>
+              <b>상생 해법</b><br />
+              농산물을 당도, 중량, 등급 기반 <b>표준 티커</b>로 규격화하고, 산지 도매가(<code>P_wholesale</code>)와 AI 검증 인터넷 실질 최저가(<code>P_retail</code>) 사이의 <b>상생 가격 밴드</b> 안에서 직거래 호가를 매칭합니다.
+            </li>
+          </ul>
+        </div>
+
+        <div class="p-4 rounded-lg bg-base-200/60">
+          <h4 class="font-bold text-base mb-2">2. 담당 역할</h4>
+          <ul class="list-disc ml-5 text-sm space-y-2 leading-relaxed">
+            <li>
+              <b>멀티 에이전트 오케스트레이션</b><br />
+              <code>GitHub.Copilot.SDK</code> 및 <code>Microsoft.Agents.AI</code> <code>ChatClientAgent</code> 파이프라인과 10종 결정론적 C# <code>AIFunction</code> 도구를 구현했습니다.
+            </li>
+            <li>
+              <b>4단계 최저가 검증 및 감사 가드레일</b><br />
+              LLM 산술 환각 및 프롬프트 인젝션을 차단하는 불변식 교차 검증과 원자적 작업 사본 롤백을 설계했습니다.
+            </li>
+            <li>
+              <b>실시간 호가 매칭 엔진 및 화면</b><br />
+              가격 및 시간 우선 다단계 매칭 엔진과 3열 호가창, 고령 농가 큰글씨 모드를 구현했습니다.
+            </li>
+            <li>
+              <b>클라우드 배포</b><br />
+              Bicep 기반 Azure Container Apps 배포 및 OpenTelemetry 트레이싱을 연동했습니다.
+            </li>
+          </ul>
+        </div>
+
+        <div class="p-4 rounded-lg bg-base-200/60">
+          <h4 class="font-bold text-base mb-2">3. 사용 기술</h4>
+          <div class="flex flex-wrap gap-1.5 mt-2">
+            <span class="badge badge-outline">.NET 10 (C# Minimal API)</span>
+            <span class="badge badge-outline">GitHub.Copilot.SDK</span>
+            <span class="badge badge-outline">Microsoft.Agents.AI</span>
+            <span class="badge badge-outline">TypeScript</span>
+            <span class="badge badge-outline">Vite</span>
+            <span class="badge badge-outline">Zero-Radius CSS</span>
+            <span class="badge badge-outline">Azure Container Apps</span>
+            <span class="badge badge-outline">Bicep</span>
+            <span class="badge badge-outline">OpenTelemetry</span>
+            <span class="badge badge-outline">xUnit (162 Tests)</span>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-lg bg-base-200/60">
+          <h4 class="font-bold text-base mb-2">4. 주요 결과 및 성과</h4>
+          <ul class="list-disc ml-5 text-sm space-y-2 leading-relaxed">
+            <li>
+              <b>출하 및 가격 비교 시간 단축</b><br />
+              수기 6단계(약 15분) 과정을 자연어 1줄 입력 기반 <b>3단계(약 15~25초, 3클릭)</b>로 단축했습니다.
+            </li>
+            <li>
+              <b>양측 상생 경제 효과</b><br />
+              시뮬레이션 기준 산지 도매가 대비 농가 수취액을 <b>34.8%~39.3% 향상</b>시켰고, 인터넷 최저가 대비 소비자 구매가를 <b>19.6%~23.8% 절감</b>했습니다.
+            </li>
+            <li>
+              <b>품질 및 보안 검증</b><br />
+              단위, 경계값, 동시성, 감사 롤백을 포함한 <b>162개 자동화 테스트 통과</b> 및 배송 정보 즉시 비식별 마스킹을 구현했습니다.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-5 pt-4 border-t border-base-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-sm">
+        <div class="space-y-1">
+          <div>
+            <span class="font-bold">데모 링크</span><br />
+            <a
+              href="/pf-8f3a2c/demo/gamsdaq/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="underline font-mono break-all">
+              https://kem0-kem.github.io/pf-8f3a2c/demo/gamsdaq/index.html
+            </a>
+          </div>
+          <div class="pt-1">
+            <span class="font-bold">소스 코드 링크</span><br />
+            <a
+              href="https://github.com/kem0-kem/gamsdaq"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="underline font-mono">
+              https://github.com/kem0-kem/gamsdaq
+            </a>
+          </div>
+        </div>
+        <a href="/pf-8f3a2c/projects/" class="btn btn-sm btn-ghost self-start sm:self-center">상세 아키텍처 더보기</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. 기타 프로젝트 목록 -->
+  <div class="mt-12">
+    <div class="text-2xl w-full font-bold mb-3">기타 프로젝트</div>
+  </div>
+
+  <HorizontalCard
+    title="WalkWar — 도시를 공략하는 레이드 걷기 게임"
+    desc="원펀치 랄프톤 in busan 수상작.<br>도시를 걸어서 정복하는 게임 프로토타입입니다.<br>1위 팀의 국기를 해당 행정구역에 다는 방식으로 소도시 여행을 활성화하고자 했습니다."
+    url="https://github.com/kem0-kem/WalkWar"
+    badge="Prototype"
+    tags={["GitHub"]}
+  />
+  <div class="divider my-0"></div>
+</BaseLayout>
+
+
